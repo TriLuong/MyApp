@@ -2,15 +2,18 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
 import Login from '../../Screens/Login';
+import Register from './Register';
 import HomeTab from './HomeTab';
+import Welcome from '../../Screens/Welcome';
+import Start from './Start';
 
 const AppNavigator = createStackNavigator(
   {
-    Login: Login,
+    Welcome: Start,
     Home: HomeTab,
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'Welcome',
     headerMode: 'none',
   },
 );

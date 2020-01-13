@@ -23,13 +23,22 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {Provider} from 'react-redux';
 import Login from '../Screens/Login';
 import Home from '../Screens/Home';
 import AppNavigation from '../Navigation/Navigation';
 import HomeTab from '../Navigation/Navigation/HomeTab';
+import {PersistGate} from 'redux-persist/es/integration/react';
+import store from '../Store';
 
 const App: () => ReactNode = () => {
-  return <AppNavigation />;
+  return (
+    <Provider store={store.store}>
+      <PersistGate persistor={store.persistor}>
+        <AppNavigation />
+      </PersistGate>
+    </Provider>
+  );
 };
 
 const styles = StyleSheet.create({
